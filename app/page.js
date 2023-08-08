@@ -1,31 +1,32 @@
 'use client'
 import Image from 'next/image'
-import { rocket, paper, planet, rocket2, stars } from './images/exports'
-import Atropos from 'atropos/react';
+import { bill, cuboid, plant, suculent } from './images/exports'
+
 export default function Home() {
 
   return (
     <div className=''>
         <nav className='navbar' aria-label="">
           <div className="title-nav">
-              <span className="">Enter Agência digital</span>
+            <span className="">Enter Agência digital</span>
           </div>
+          <div>
+            <button className='button'>Contactanos</button>
+          </div>
+            
         </nav>
 
         
-        <div style={{ height: '100vh'}}>
-        <Atropos className="atropos my-atropos"  id='bench'>
-          <div className="atropos-scale">
-            <div className="atropos-rotate back">
-              <div className="atropos-inner">
-                <h1>Enter</h1>
-                <Image className='planet-img' src={planet} width={500} height={500} alt='Rocket'/>
-                <Image className='stars-img' src={stars} width={500} height={500} alt='Rocket'/>
-                <Image className='rocket-img' src={rocket} width={800} height={800} alt='Rocket'/>
-              </div>
+        <div style={{ height: '90vh', background: 'rgba(16, 144, 203, 0.1)', display: 'flex'}}>
+          <div className='info-div'>
+            <div style={{ margin: '0 30px' }}>
+            <h1 className='text'>Creacion experimentada de aplicaciones <span className='text mobile'>mobile y web</span>.<br/>Co-creemos tu espacio.</h1>
+            <p className='subtext'>Enter es un equipo de desarrollo de aplicaciones móviles y web con experiencia. Construimos y desarrollamos aplicaciones móviles para varias plataformas superiores, incluyendo Android & IOS.</p>
             </div>
           </div>
-        </Atropos>
+          <div className='divImages'>
+            <Image className='bill' src={bill} height={650} width={509} alt='bill'/>
+          </div>
         </div>
 
 

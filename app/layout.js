@@ -1,5 +1,4 @@
 import './globals.css'
-import 'atropos/css'
 
 export const metadata = {
   title: 'Enter Agencia Digital',
