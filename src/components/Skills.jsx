@@ -1,11 +1,26 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
-import meter3 from "../assets/img/meter3.svg";
+import { useState } from "react"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from "../assets/img/color-sharp.png"
+import { IconCss3, IconExpress, IconHtml5, IconJs, IconNextjs, IconPython, IconReact } from "./Icons";
 
 export const Skills = () => {
+  const [activeIndex, setActiveIndex] = useState(6);
+
+  const handleBeforeChange = (currentSlide, nextSlide) => {
+    console.log(activeIndex, nextSlide.currentSlide)
+    setActiveIndex(nextSlide.currentSlide);
+  };
+
+  const items = [
+    { icon: <IconJs />, label: 'Javascript' },
+    { icon: <IconReact />, label: 'React' },
+    { icon: <IconNextjs />, label: 'NextJs' },
+    { icon: <IconHtml5 />, label: 'Html' },
+    { icon: <IconCss3 />, label: 'Css' },
+    { icon: <IconPython />, label: 'Python' },
+    { icon: <IconExpress />, label: 'Express' }
+  ];
   const responsive = {
     superLargeDesktop: {
       // the naming can be any, depends on you.
@@ -32,30 +47,22 @@ export const Skills = () => {
         <div className="row">
           <div className="col-12">
             <div className="skill-bx wow zoomIn">
-              <h2>Skills</h2>
+              <h2>Habilidades</h2>
               <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industrys standard dummy text.</p>
               <Carousel
                 responsive={responsive}
                 infinite={true}
                 className="owl-carousel owl-theme skill-slider"
+                customTransition="transform 500ms ease-in-out"
                 autoPlay={true}
-                autoPlaySpeed={2000}>
-                <div className="item">
-                  <img src={meter1} alt="Image" />
-                  <h5>Web Development</h5>
-                </div>
-                <div className="item">
-                  <img src={meter2} alt="Image" />
-                  <h5>Brand Identity</h5>
-                </div>
-                <div className="item">
-                  <img src={meter3} alt="Image" />
-                  <h5>Logo Design</h5>
-                </div>
-                <div className="item">
-                  <img src={meter1} alt="Image" />
-                  <h5>Web Development</h5>
-                </div>
+                autoPlaySpeed={1000}
+                beforeChange={handleBeforeChange}>
+                {items.map((item, index) => (
+                  <div key={index} className={`item ${index === activeIndex ? 'active' : ''}`}>
+                    {item.icon}
+                    <h5>{item.label}</h5>
+                  </div>
+                ))}
               </Carousel>
             </div>
           </div>

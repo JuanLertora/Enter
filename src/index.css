@@ -11,3 +11,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Estilo de la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo del riel de la barra de desplazamiento */
+::-webkit-scrollbar-track {
+  background: #0a0a0a; /* Color del riel de la barra de desplazamiento */
+}
+
+/* Estilo del pulgar de la barra de desplazamiento */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color del pulgar de la barra de desplazamiento */
+  border-radius: 5px; /* Radio de borde del pulgar de la barra de desplazamiento */
+}

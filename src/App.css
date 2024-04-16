@@ -349,6 +349,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 50%;
   margin: 0 auto 15px auto;
 }
+
+.skill-slider {
+  .item {
+    transition: transform 0.8s ease;
+  }
+  
+  .item:hover {
+    transform: scale(1.1); /* Aplicar un efecto de zoom al elemento activo */
+  }
+}
 .background-image-left {
   top: 28%;
   position: absolute;
@@ -649,4 +659,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   width: 100%;
   height: 100%;
   z-index: -1; /* Ajusta el z-index según sea necesario para que las partículas estén por encima del contenido */
+}
+
+
+.animationText {
+  display: inline-block;
+  margin: 0 0.5rem;
+  background: linear-gradient(90.21deg, #79fe01 -5.91%, #9eb636 111.58%);
+  -webkit-background-clip: text; /* Aplicar el gradiente al texto */
+  -webkit-text-fill-color: transparent;
+  animation: tada; /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 2s; /* don't forget to set a duration! */
+  animation-iteration-count: infinite
 }
