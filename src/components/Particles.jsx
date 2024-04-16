@@ -1,13 +1,12 @@
 import { useEffect } from 'react';
-import { particlesData } from './utils';
 
-const ParticleComponent = () => {
+const ParticleComponent = ({ data }) => {
   useEffect(() => {
     // eslint-disable-next-line no-undef
-    particlesJS('particles-js', particlesData);
+    particlesJS('particles-js', data);
   }, []);
 
-  return <div id="particles-js"></div>;
+  return <div id="particles-js" className="particles"></div>;
 };
 
 export default ParticleComponent;
