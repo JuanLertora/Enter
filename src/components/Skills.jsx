@@ -1,17 +1,9 @@
-import { useState } from "react"
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import colorSharp from "../assets/img/color-sharp.png"
 import { IconCss3, IconExpress, IconHtml5, IconJs, IconNextjs, IconPython, IconReact } from "./Icons";
 
 export const Skills = () => {
-  const [activeIndex, setActiveIndex] = useState(6);
-
-  const handleBeforeChange = (currentSlide, nextSlide) => {
-    console.log(activeIndex, nextSlide.currentSlide)
-    setActiveIndex(nextSlide.currentSlide);
-  };
-
   const items = [
     { icon: <IconJs />, label: 'Javascript' },
     { icon: <IconReact />, label: 'React' },
@@ -55,10 +47,9 @@ export const Skills = () => {
                 className="owl-carousel owl-theme skill-slider"
                 customTransition="transform 500ms ease-in-out"
                 autoPlay={true}
-                autoPlaySpeed={1000}
-                beforeChange={handleBeforeChange}>
+                autoPlaySpeed={1000}>
                 {items.map((item, index) => (
-                  <div key={index} className={`item ${index === activeIndex ? 'active' : ''}`}>
+                  <div key={index} className={``}>
                     {item.icon}
                     <h5>{item.label}</h5>
                   </div>
