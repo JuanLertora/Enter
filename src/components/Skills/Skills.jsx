@@ -1,9 +1,10 @@
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import colorSharp from "../assets/img/color-sharp.png"
-import { IconCss3, IconExpress, IconHtml5, IconJs, IconNextjs, IconPython, IconReact } from "./Icons";
+import colorSharp from "../../assets/img/color-sharp.png"
+import { IconCss3, IconExpress, IconHtml5, IconJs, IconNextjs, IconPython, IconReact } from "../utils/Icons";
+import { skills } from '../utils/utils';
 
-export const Skills = () => {
+export const Skills = ({language}) => {
   const items = [
     { icon: <IconJs />, label: 'Javascript' },
     { icon: <IconReact />, label: 'React' },
@@ -39,8 +40,8 @@ export const Skills = () => {
         <div className="row">
           <div className="col-12">
             <div className="skill-bx wow zoomIn">
-              <h2>Habilidades</h2>
-              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industrys standard dummy text.</p>
+              <h2>{skills[language].title}</h2>
+              <p>{skills[language].description[0]}<br></br><b>{skills[language].description[1]}</b></p>
               <Carousel
                 responsive={responsive}
                 infinite={true}

@@ -3,10 +3,11 @@ import { Container, Row, Col } from "react-bootstrap";
 // import contactImg from "../assets/img/contact-img.svg";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import headerImg from "../assets/img/header-img.svg";
+import headerImg from "../../assets/img/space-man.svg";
 import emailjs from "@emailjs/browser"
+import { contactFormLabels, contactFormMessages } from "../utils/utils";
 
-export const Contact = () => {
+export const Contact = ({language}) => {
 
   const serviceID = import.meta.env.VITE_MAILJS_ID
   const templateID = import.meta.env.VITE_MAILJS_TEMPLATE
@@ -19,7 +20,7 @@ export const Contact = () => {
     message: ''
   }
   const [formDetails, setFormDetails] = useState(formInitialDetails);
-  const [buttonText, setButtonText] = useState('Enviar');
+  const [buttonText, setButtonText] = useState(contactFormMessages[language].enviar);
   const [status, setStatus] = useState({});
 
   const onFormUpdate = (category, value) => {
@@ -33,19 +34,19 @@ export const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (Object.values(formDetails).some(value => !value.trim())) {
-      setStatus({ success: false, message: 'Por favor complete todos los campos obligatorios.' });
+      setStatus({ success: false, message: contactFormMessages[language].completarCampos });
       return;
     }
-    setButtonText("Enviando...");
+    setButtonText(contactFormMessages[language].enviando);
     emailjs.sendForm(serviceID, templateID, refForm.current, keyID)
       .then(result => {
         console.log(result)
         if (result.status == 200) {
-          setStatus({ succes: true, message: 'El mensaje se envio correctamente' });
+          setStatus({ succes: true, message: contactFormMessages[language].exito });
         } else {
-          setStatus({ succes: false, message: 'Algo salio mal intente mas tarde.' });
+          setStatus({ succes: false, message: contactFormMessages[language].error });
         }
-        setButtonText("Enviar");
+        setButtonText(contactFormMessages[language].enviar);
         setFormDetails(formInitialDetails);
         refForm.current = null
       })
@@ -72,17 +73,17 @@ export const Contact = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <h2>Contactate</h2>
+                  <h2>{contactFormLabels[language].contacto}</h2>
                   <form onSubmit={handleSubmit} ref={refForm}>
                     <Row>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="text" name="username" value={formDetails.username} placeholder="Nombre" onChange={(e) => onFormUpdate('username', e.target.value)} />
+                        <input type="text" name="username" value={formDetails.username} placeholder={contactFormLabels[language].nombre} onChange={(e) => onFormUpdate('username', e.target.value)} />
                       </Col>
                       <Col size={12} sm={6} className="px-1">
-                        <input type="email" name="email" value={formDetails.email} placeholder="Email" onChange={(e) => onFormUpdate('email', e.target.value)} />
+                        <input type="email" name="email" value={formDetails.email} placeholder={contactFormLabels[language].email} onChange={(e) => onFormUpdate('email', e.target.value)} />
                       </Col>
                       <Col size={12} className="px-1">
-                        <textarea rows="6" name="message" value={formDetails.message} placeholder="Mensaje" onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
+                        <textarea rows="6" name="message" value={formDetails.message} placeholder={contactFormLabels[language].mensaje} onChange={(e) => onFormUpdate('message', e.target.value)}></textarea>
                         <div className="submitButton"><button type="submit"><span>{buttonText}</span></button></div>
                       </Col>
                     </Row>

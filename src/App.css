@@ -285,7 +285,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   color: #fff;
   font-weight: 700;
   font-size: 20px;
-  margin-top: 60px;
+  margin-top: 40px;
   letter-spacing: 0.8px;
   display: flex;
   align-items: center;
@@ -671,4 +671,39 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   animation: tada; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 2s; /* don't forget to set a duration! */
   animation-iteration-count: infinite
+}
+
+/* Dropdown css */
+.dropdown-toggle::after{
+  display: none !important;
+}
+.dropdown-menu[data-bs-popper]{
+  right: 0 !important;
+  left: unset !important;
+}
+.show.dropdown .dropdown-menu.show {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #151515;
+  
+  .dropdown-item {
+    background: #151515;
+    height: auto;
+    border: none;
+    width: auto;
+    color: white;
+
+    img{
+      margin-right: 4px;
+      filter: none;
+    }
+  }
+  a.dropdown-item::before {
+    transform: none;
+    background: none;
+  }
+  a.dropdown-item:hover img{
+    transform: scale(1.4);
+  }
 }

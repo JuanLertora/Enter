@@ -4,10 +4,10 @@ import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRightCircle } from 'react-bootstrap-icons';
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
-import ParticleComponent from "./Particles";
-import { particlesData } from "./utils";
+import ParticleComponent from "../Particles/Particles";
+import { initialDescription, particlesData } from "../utils/utils";
 
-export const Banner = () => {
+export const Banner = ({language}) => {
   const toRotate = ["Web Developer", "Web Designer", "UI/UX Designer"];
   const [index, setIndex] = useState(0);
   const period = 2000;
@@ -27,7 +27,7 @@ export const Banner = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+  console.log(initialDescription)
   return (
     <section className="banner" id="home"> 
       <ParticleComponent data={particlesData} />
@@ -37,11 +37,11 @@ export const Banner = () => {
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
-                  <span className="tagline">Bienvenido a mi Portfolio</span>
-                  <h1>{`Hola! Soy Juan Lertora `}</h1>
+                  <span className="tagline">{initialDescription[language].tag}</span>
+                  <h1>{initialDescription[language].title}</h1>
                   <h1 className="animationText">{toRotate[index]}</h1>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <button onClick={scrollToSection}>Contactame <ArrowRightCircle size={25} /></button>
+                  <p>{initialDescription[language].description}</p>
+                  <button onClick={scrollToSection}>{initialDescription[language].contact}<ArrowRightCircle size={25} /></button>
                 </div>}
             </TrackVisibility>
           </Col>

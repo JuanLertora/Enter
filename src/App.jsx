@@ -1,21 +1,30 @@
+import { useState } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { NavBar } from "./components/NavBar";
-import { Banner } from "./components/Banner";
-import { Skills } from "./components/Skills";
-import { Projects } from "./components/Projects";
-import { Contact } from "./components/Contact";
-import { Footer } from "./components/Footer";
+import { NavBar } from "./components/Navbar/NavBar";
+import { Banner } from "./components/Banner/Banner";
+import { Skills } from "./components/Skills/Skills";
+import { Projects } from "./components/Projects/Projects";
+import { Contact } from "./components/Contact/Contact";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
+
+  const [language, setLanguage] = useState(localStorage.getItem('language') || 'es');
+
+  const handleLanguageChange = (selectedLanguage) => {
+    setLanguage(selectedLanguage);
+    localStorage.setItem('language', selectedLanguage);
+  };
+
   return (
     <div className="App">
-      <NavBar />
-      <Banner />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      <NavBar language={language} handleLanguageChange={handleLanguageChange}/>
+      <Banner language={language} />
+      <Skills language={language} />
+      <Projects language={language} />
+      <Contact language={language} />
+      <Footer language={language} />
     </div>
   );
 }
