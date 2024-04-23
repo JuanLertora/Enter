@@ -10,7 +10,7 @@ import projImg2 from "../../assets/img/projecto2.png";
 import projImg3 from "../../assets/img/projecto3.png";
 import projImg4 from "../../assets/img/projecto4.png";
 import projImg5 from "../../assets/img/projecto5.png";
-import flame from "../../assets/img/projecto6.png";
+import flame from "../../assets/img/flame.png";
 export const particlesData = {
     "particles": {
       "number": {
@@ -161,7 +161,7 @@ export const projectsDescription = {
       description: "Desarrollo"
     },
     {
-      title: "Netglobal Solutions",
+      title: "Geolocalizacion DTV",
       description: "Diseño y Desarrollo"
     },
   ],
