@@ -40,6 +40,7 @@ export const Projects = ({ language }) => {
                                   key={index}
                                   title={projectsDescription[language][index].title}
                                   description={projectsDescription[language][index].description}
+                                  subDescription={projectsDescription[language][index].subDescription}
                                   imgUrl={project}
                                 />
                               )

@@ -142,79 +142,97 @@ export const projectsDescription = {
   "es": [
     {
       title: "Club Santa Clara",
-      description: "Diseño y Desarrollo"
+      description: "Diseño y Desarrollo",
+      subDescription: "Creacion de una app para el manejo de usuarios, lector de QR y Generador de QR"
     },
     {
       title: "NetGlobal Solutions",
-      description: "Diseño y Desarrollo"
+      description: "Diseño y Desarrollo",
+      subDescription: "Modulo de Kanban para el manejo generico de tareas"
     },
     {
       title: "Tienda Flame",
-      description: "Diseño y Desarrollo"
+      description: "Diseño y Desarrollo",
+      subDescription: "Tienda de ropa de diseño con carrito de compras"
     },
     {
       title: "Netglobal Solutions",
-      description: "Desarrollo"
+      description: "Desarrollo",
+      subDescription: "Modulo de mapa para el seguimiento de una ruta de un movil"
     },
     {
       title: "Netglobal Solutions",
-      description: "Desarrollo"
+      description: "Desarrollo",
+      subDescription: "Modulo de graficos para la muestra de datos de forma intuitiva y amigable"
     },
     {
       title: "Geolocalizacion DTV",
-      description: "Diseño y Desarrollo"
+      description: "Diseño y Desarrollo",
+      subDescription: "Aplicacion para la visualizacion de moviles en tiempo real, con consultas sobre los mismos y historial de rutas"
     },
   ],
   "pt": [
     {
-      title: "Club Santa Clara",
-      description: "Design e Desenvolvimento"
+      title: "Clube Santa Clara",
+      description: "Design e Desenvolvimento",
+      subDescription: "Criação de um aplicativo para gerenciamento de usuários, leitor de QR e gerador de QR"
     },
     {
-      title: "NetGlobal Solutions",
-      description: "Design e Desenvolvimento"
+      title: "Soluções NetGlobal",
+      description: "Design e Desenvolvimento",
+      subDescription: "Módulo Kanban para gerenciamento genérico de tarefas"
     },
     {
-      title: "Tienda Flame",
-      description: "Design e Desenvolvimento"
+      title: "Loja Flame",
+      description: "Design e Desenvolvimento",
+      subDescription: "Loja de roupas de design com carrinho de compras"
     },
     {
-      title: "Netglobal Solutions",
-      description: "Desenvolvimento"
+      title: "Soluções Netglobal",
+      description: "Desenvolvimento",
+      subDescription: "Módulo de mapa para rastreamento de rota de um celular"
     },
     {
-      title: "Netglobal Solutions",
-      description: "Desenvolvimento"
+      title: "Soluções Netglobal",
+      description: "Desenvolvimento",
+      subDescription: "Módulo de gráficos para exibição de dados de forma intuitiva e amigável"
     },
     {
-      title: "Netglobal Solutions",
-      description: "Design e Desenvolvimento"
+      title: "Geolocalização DTV",
+      description: "Design e Desenvolvimento",
+      subDescription: "Aplicativo para visualização de celulares em tempo real, com consultas sobre os mesmos e histórico de rotas"
     }
   ],
   "us": [
     {
       title: "Club Santa Clara",
-      description: "Design and Development"
+      description: "Design and Development",
+      subDescription: "Creation of an app for user management, QR code reader, and QR code generator"
     },
     {
       title: "NetGlobal Solutions",
-      description: "Design and Development"
+      description: "Design and Development",
+      subDescription: "Kanban module for generic task management"
     },
     {
-      title: "Tienda Flame",
-      description: "Design and Development"
-    },
-    {
-      title: "Netglobal Solutions",
-      description: "Development"
-    },
-    {
-      title: "Netglobal Solutions",
-      description: "Development"
+      title: "Flame Store",
+      description: "Design and Development",
+      subDescription: "Designer clothing store with shopping cart"
     },
     {
       title: "Netglobal Solutions",
-      description: "Design and Development"
+      description: "Development",
+      subDescription: "Map module for tracking a mobile route"
+    },
+    {
+      title: "Netglobal Solutions",
+      description: "Development",
+      subDescription: "Chart module for displaying data in an intuitive and user-friendly way"
+    },
+    {
+      title: "DTV Geolocation",
+      description: "Design and Development",
+      subDescription: "Application for real-time visualization of mobile devices, with queries about them and route history"
     }
   ]
 }
