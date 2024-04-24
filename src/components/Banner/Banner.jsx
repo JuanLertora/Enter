@@ -27,7 +27,6 @@ export const Banner = ({language}) => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-  console.log(initialDescription)
   return (
     <section className="banner" id="home"> 
       <ParticleComponent data={particlesData} />

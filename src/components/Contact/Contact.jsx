@@ -40,7 +40,6 @@ export const Contact = ({language}) => {
     setButtonText(contactFormMessages[language].enviando);
     emailjs.sendForm(serviceID, templateID, refForm.current, keyID)
       .then(result => {
-        console.log(result)
         if (result.status == 200) {
           setStatus({ succes: true, message: contactFormMessages[language].exito });
         } else {
