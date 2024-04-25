@@ -258,19 +258,19 @@ export const projectsTitle = {
 export const skills = {
   "es": 
     {
-      title: "Habilidades",
-      description: ["Tener habilidades destacadas es beneficioso porque te ayuda a,", "diferenciarte, demostrar relevancia, construir credibilidad, aumentar tu visibilidad y mantener un enfoque claro en tu desarrollo profesional."]
+      title: "Herramientas",
+      description: ["Tener herramientas de trabajo destacadas es beneficioso porque te ayuda a,", "diferenciarte, demostrar relevancia, construir credibilidad, aumentar tu visibilidad y mantener un enfoque claro en tu desarrollo profesional."]
     },
   "pt": 
     {
-      title: "Habilidades",
-      description: ["Ter habilidades destacadas é benéfico porque ajuda a diferenciar-se,", "demonstrar relevância, construir credibilidade, aumentar sua visibilidade e manter um foco claro no seu desenvolvimento profissional."]
+      title: "Ferramentas",
+      description: ["Ter ferramentas de trabalho destacadas é benéfico porque ajuda a diferenciar-se,", "demonstrar relevância, construir credibilidade, aumentar sua visibilidade e manter um foco claro no seu desenvolvimento profissional."]
     }
   ,
   "us": 
     {
-      title: "Skills",
-      description:[ "Having standout skills is beneficial because it helps you,", "differentiate yourself, demonstrate relevance, build credibility, increase your visibility, and maintain a clear focus on your professional development."]
+      title: "Tools",
+      description:[ "Having standout tools is beneficial because it helps you,", "differentiate yourself, demonstrate relevance, build credibility, increase your visibility, and maintain a clear focus on your professional development."]
     }
 }
 
