@@ -42,12 +42,12 @@ export const NavBar = ({language, handleLanguageChange}) => {
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>{navBarTag[language].habilidades}</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>{navBarTag[language].proyectos}</Nav.Link>
               <Nav.Link
-                href="/cv"
+                href="/curriculum.html"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="navbar-link"
               >
-                  📄 {navBarTag[language].cv}
+                {navBarTag[language].cv}
               </Nav.Link>
             </Nav>
             <span className="navbar-text">
