@@ -2,9 +2,6 @@ import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { MediaIcon, navBarTag } from "../utils/utils";
 import { HashLink } from 'react-router-hash-link';
-import {
-  BrowserRouter as Router
-} from "react-router-dom";
 import LanguageSelector from "../LanguageSelector/LanguageSelector";
 
 export const NavBar = ({language, handleLanguageChange}) => {
@@ -31,7 +28,6 @@ export const NavBar = ({language, handleLanguageChange}) => {
   }
 
   return (
-    <Router>
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand href="/">
@@ -45,6 +41,14 @@ export const NavBar = ({language, handleLanguageChange}) => {
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>{navBarTag[language].inicio}</Nav.Link>
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>{navBarTag[language].habilidades}</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>{navBarTag[language].proyectos}</Nav.Link>
+              <Nav.Link
+                href="/cv"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="navbar-link"
+              >
+                  📄 {navBarTag[language].cv}
+              </Nav.Link>
             </Nav>
             <span className="navbar-text">
               <div className="social-icon">
@@ -62,6 +66,5 @@ export const NavBar = ({language, handleLanguageChange}) => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-    </Router>
   )
 }

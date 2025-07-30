@@ -283,10 +283,28 @@ export const initialDescription = {
 }
 
 export const navBarTag = {
-  "es": {inicio: "Inicio", habilidades: "Habilidades", proyectos: "Proyectos", work: "Trabajemos Juntos"},
-  "pt": {inicio: "Início", habilidades: "Habilidades", proyectos: "Projetos", work: "Vamos trabalhar juntos"},
-  "us": {inicio: "Home", habilidades: "Skills", proyectos: "Projects", work: "Let's work together"}
-}
+  "es": {
+    inicio: "Inicio",
+    habilidades: "Habilidades",
+    proyectos: "Proyectos",
+    work: "Trabajemos Juntos",
+    cv: "Hoja de vida" // o también "Currículum"
+  },
+  "pt": {
+    inicio: "Início",
+    habilidades: "Habilidades",
+    proyectos: "Projetos",
+    work: "Vamos trabalhar juntos",
+    cv: "Currículo" // o "Currículo" (más común en Brasil)
+  },
+  "us": {
+    inicio: "Home",
+    habilidades: "Skills",
+    proyectos: "Projects",
+    work: "Let's work together",
+    cv: "Resume"
+  }
+};
 
 export const contactFormLabels = {
   "es": {contacto: "Contacto", nombre: "Nombre", email: "Correo Electrónico", mensaje: "Mensaje", derechos: "Todos los derechos reservados"},

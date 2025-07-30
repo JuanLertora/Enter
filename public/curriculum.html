@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="cvTitle">Juan Lertora - Currículo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            color: #374151;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: 20px auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        h1, h2, h3, h4 {
+            color: #1f2937;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        h1 { font-size: 2.25rem; } /* text-4xl */
+        h2 { font-size: 1.5rem; }  /* text-2xl */
+        h3 { font-size: 1.25rem; } /* text-xl */
+        h4 { font-size: 1.125rem; } /* text-lg */
+
+        .section-title {
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            color: #1f2937;
+            font-size: 1.25rem; /* text-xl */
+        }
+        .emphasis-text {
+            font-weight: 600;
+            color: #1f2937;
+        }
+        .job-title {
+            font-weight: 600;
+            color: #374151;
+        }
+        .job-company {
+            font-weight: 400;
+            color: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="container rounded-lg">
+        <!-- Header Section (Single Column) -->
+        <header class="text-center mb-8 relative">
+            <h1 class="text-4xl font-extrabold text-gray-900 mb-1">Juan Lertora</h1>
+            <h2 id="jobTitle" class="text-2xl font-semibold text-gray-700 mb-3">Desenvolvedor Frontend Pleno</h2>
+            <p class="text-lg text-gray-600">
+                <a href="https://linkedin.com/in/juan-lertora" target="_blank" class="text-blue-600 hover:underline">LinkedIn: linkedin.com/in/juan-lertora</a>
+            </p>
+            <!-- Language Selector -->
+            <div class="absolute top-0 right-0 mt-2 mr-2">
+                <button id="langToggle" onclick="toggleLanguage()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-md">
+                    ES / PT
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Section (Two Columns) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Left Column: Profile, Skills, Education -->
+            <div class="md:col-span-1">
+                <section class="mb-6">
+                    <h3 class="section-title" id="profileTitle">Perfil Profissional</h3>
+                    <p class="text-gray-700 text-sm leading-relaxed" id="profileContent"></p>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="section-title" id="skillsTitle">Habilidades Técnicas</h3>
+                    <div class="text-sm text-gray-700" id="skillsContent"></div>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="section-title" id="educationTitle">Formação Acadêmica</h3>
+                    <div id="educationContent"></div>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="section-title" id="languagesTitle">Idiomas</h3>
+                    <div id="languagesContent"></div>
+                </section>
+            </div>
+
+            <!-- Right Column: Experience, Projects -->
+            <div class="md:col-span-2">
+                <section class="mb-6">
+                    <h3 class="section-title" id="experienceTitle">Experiência Profissional</h3>
+                    <div id="experienceContent"></div>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="section-title" id="freelanceTitle">Projetos Freelance</h3>
+                    <div id="freelanceContent"></div>
+                </section>
+
+                <section class="mb-6">
+                    <h3 class="section-title" id="personalProjectsTitle">Projetos Pessoais</h3>
+                    <ul class="list-disc list-inside text-gray-700 text-sm" id="personalProjectsContent"></ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Object containing all content in Portuguese and Spanish
+        const content = {
+            pt: {
+                cvTitle: "Juan Lertora - Currículo",
+                jobTitle: "Desenvolvedor Frontend Pleno",
+                profileTitle: "Perfil Profissional",
+                profileContent: `Desenvolvedor web com <span class="emphasis-text">mais de 3 anos de experiência</span> na criação de interfaces escaláveis, funcionais e manteníveis utilizando <span class="emphasis-text">JavaScript, React e Next.js</span>. Atuei em regime de CLT e como freelancer, destacando-me na implementação de funcionalidades dinâmicas, refatoração de componentes complexos, integração robusta com APIs RESTful e otimização de processos de exportação de dados. Sou <span class="emphasis-text">autodidata</span>, possuo forte capacidade analítica e de comunicação, e me adapto rapidamente a novos desafios técnicos. Minha paixão por novas tecnologias e pela resolução de problemas complexos me impulsiona a sempre buscar as melhores soluções e a contribuir ativamente para o sucesso da equipe.`,
+                skillsTitle: "Habilidades Técnicas",
+                skillsContent: `
+                    <p><span class="emphasis-text">Frontend:</span> JavaScript, React, Next.js, HTML5, CSS3, Tailwind CSS, React Native, TypeScript, Redux, Context API</p>
+                    <p><span class="emphasis-text">Backend:</span> Node.js, Express.js, RESTful APIs, GraphQL (básico)</p>
+                    <p><span class="emphasis-text">Banco de Dados:</span> PostgreSQL, Firebase (Firestore, Realtime DB), MongoDB</p>
+                    <p><span class="emphasis-text">Ferramentas & Metodologias:</span> Git, WebSocket, ExcelJS, PDF generation, JIRA, Docker (básico), Metodologias Ágeis (Scrum, Kanban)</p>
+                    <p><span class="emphasis-text">Testes:</span> Jest, React Testing Library (básico)</p>
+                `,
+                educationTitle: "Formação Acadêmica",
+                educationContent: `
+                    <p class="text-gray-700 text-sm mb-2">
+                        <span class="emphasis-text">SoyHenry</span> - Full Stack Web Developer (Concluído)
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">UTN</span> - Tecnólogo em Programação - Primeiro ano completo
+                    </p>
+                `,
+                languagesTitle: "Idiomas",
+                languagesContent: `
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Espanhol:</span> Nativo
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Inglês:</span> Intermediário (Leitura e Escrita avançada, Conversação intermediária)
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Português:</span> Intermediário
+                    </p>
+                `,
+                experienceTitle: "Experiência Profissional",
+                experienceContent: `
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Desenvolvedor Frontend</h4>
+                        <p class="job-company text-md text-gray-600">NetGlobal (2022 - Atualmente)</p>
+                        <ul class="list-disc list-inside text-gray-700 text-sm mt-1">
+                            <li><span class="emphasis-text">Liderança na refatoração</span> de componentes legados para melhorar a manutenibilidade, escalabilidade e otimizar o desempenho em até 30% de aplicações de larga escala, utilizando React e TypeScript.</li>
+                            <li><span class="emphasis-text">Desenvolvimento de novas funcionalidades</span> complexas com foco genérico e reutilizável, implementando padrões de design e garantindo a escalabilidade do produto para milhões de usuários.</li>
+                            <li><span class="emphasis-text">Resolução proativa de bugs</span> críticos e implementação de melhorias contínuas em produtos internos, resultando em maior estabilidade e satisfação do usuário.</li>
+                            <li><span class="emphasis-text">Participação ativa em decisões técnicas</span>, arquitetura de software e pesquisa de melhores práticas, contribuindo significativamente para a evolução da plataforma e para a mentoria de desenvolvedores juniores.</li>
+                            <li><span class="emphasis-text">Colaboração multifuncional</span> com equipes de backend, design e produto para entregar soluções de alta qualidade dentro de prazos desafiadores.</li>
+                        </ul>
+                    </div>
+                `,
+                freelanceTitle: "Projetos Freelance",
+                freelanceContent: `
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Chatbot com Painel Administrador</h4>
+                        <p class="text-gray-700 text-sm mt-1">
+                            Desenvolvimento completo de uma aplicação <span class="emphasis-text">React + Firebase com WebSocket</span>, permitindo que operadores interajam em tempo real com usuários. Incluiu lógica de turnos, registros detalhados de conversas e um sistema de <span class="emphasis-text">análise de dados</span> para otimização do atendimento ao cliente.
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Sistema de Fechamento de Caixa</h4>
+                        <p class="text-gray-700 text-sm mt-1">
+                            Criação de uma aplicação robusta para carregamento de dados financeiros com <span class="emphasis-text">cálculos automáticos</span>, geração de <span class="emphasis-text">relatórios detalhados e personalizáveis</span>, exportação para Excel (utilizando ExcelJS) e funcionalidade de envio por WhatsApp ou e-mail. Otimização da performance para gerenciar <span class="emphasis-text">grandes volumes de dados</span> de forma eficiente.
+                        </p>
+                    </div>
+                `,
+                personalProjectsTitle: "Projetos Pessoais",
+                personalProjectsContent: `
+                    <li><span class="emphasis-text">Plataforma de E-commerce Completa:</span> Desenvolvimento de uma plataforma de e-commerce utilizando <span class="emphasis-text">Next.js</span> para o frontend, <span class="emphasis-text">Node.js/Express</span> para o backend, integração com <span class="emphasis-text">Stripe</span> para pagamentos e <span class="emphasis-text">MongoDB</span> como banco de dados. Inclui carrinho de compras, autenticação de usuário e painel administrativo.</li>
+                    <li><span class="emphasis-text">Portfólio Pessoal Interativo:</span> Website responsivo construído com React e Tailwind CSS, apresentando projetos e habilidades de forma dinâmica e visualmente atraente.</li>
+                    <li><span class="emphasis-text">Aplicações Móveis com React Native:</span> Diversos protótipos e aplicações funcionais desenvolvidas para Android e iOS, explorando a criação de interfaces nativas e integração com APIs.</li>
+                    <li><span class="emphasis-text">To-do List Avançada:</span> Aplicação de gerenciamento de tarefas com funcionalidades de arrastar e soltar, filtros avançados e persistência de dados utilizando Firebase.</li>
+                `
+            },
+            es: {
+                cvTitle: "Juan Lertora - Currículum",
+                jobTitle: "Desarrollador Frontend Semi Senior",
+                profileTitle: "Perfil Profesional",
+                profileContent: `Desarrollador web con <span class="emphasis-text">más de 3 años de experiencia</span> creando interfaces escalables, funcionales y mantenibles con <span class="emphasis-text">JavaScript, React y Next.js</span>. He trabajado en relación de dependencia y como freelance, destacándome en la implementación de funcionalidades dinámicas, refactorización de componentes complejos, integración robusta con APIs RESTful y optimización de procesos de exportación de datos. Me caracterizo por ser <span class="emphasis-text">autodidacta</span>, con buena capacidad analítica y comunicacional, y por adaptarme con rapidez a nuevos desafíos técnicos. Mi pasión por las nuevas tecnologías y la resolución de problemas complejos me impulsa a buscar siempre las mejores soluciones y a contribuir activamente al éxito del equipo.`,
+                skillsTitle: "Habilidades Técnicas",
+                skillsContent: `
+                    <p><span class="emphasis-text">Frontend:</span> JavaScript, React, Next.js, HTML5, CSS3, Tailwind CSS, React Native, TypeScript, Redux, Context API</p>
+                    <p><span class="emphasis-text">Backend:</span> Node.js, Express.js, RESTful APIs, GraphQL (básico)</p>
+                    <p><span class="emphasis-text">Base de Datos:</span> PostgreSQL, Firebase (Firestore, Realtime DB), MongoDB</p>
+                    <p><span class="emphasis-text">Herramientas & Metodologías:</span> Git, WebSocket, ExcelJS, Generación de PDF, JIRA, Docker (básico), Metodologías Ágiles (Scrum, Kanban)</p>
+                    <p><span class="emphasis-text">Pruebas:</span> Jest, React Testing Library (básico)</p>
+                `,
+                educationTitle: "Formación Académica",
+                educationContent: `
+                    <p class="text-gray-700 text-sm mb-2">
+                        <span class="emphasis-text">SoyHenry</span> - Full Stack Web Developer (Completado)
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">UTN</span> - Tecnicatura en Programación - Primer año completo
+                    </p>
+                `,
+                languagesTitle: "Idiomas",
+                languagesContent: `
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Español:</span> Nativo
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Inglés:</span> Intermedio (Lectura y Escritura avanzada, Conversación intermedia)
+                    </p>
+                    <p class="text-gray-700 text-sm">
+                        <span class="emphasis-text">Portugués:</span> Intermedio
+                    </p>
+                `,
+                experienceTitle: "Experiencia Profesional",
+                experienceContent: `
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Desarrollador Frontend</h4>
+                        <p class="job-company text-md text-gray-600">NetGlobal (2022 - Actualidad)</p>
+                        <ul class="list-disc list-inside text-gray-700 text-sm mt-1">
+                            <li><span class="emphasis-text">Liderazgo en la refactorización</span> de componentes legados para mejorar la mantenibilidad, escalabilidad y optimizar el rendimiento en hasta un 30% de aplicaciones a gran escala, utilizando React y TypeScript.</li>
+                            <li><span class="emphasis-text">Desarrollo de nuevas funcionalidades</span> complejas con enfoque genérico y reutilizable, implementando patrones de diseño y garantizando la escalabilidad del producto para millones de usuarios.</li>
+                            <li><span class="emphasis-text">Resolución proactiva de bugs</span> críticos e implementación de mejoras continuas en productos internos, resultando en mayor estabilidad y satisfacción del usuario.</li>
+                            <li><span class="emphasis-text">Participación activa en decisiones técnicas</span>, arquitectura de software e investigación de mejores prácticas, contribuyendo significativamente a la evolución de la plataforma y a la mentoría de desarrolladores junior.</li>
+                            <li><span class="emphasis-text">Colaboración multifuncional</span> con equipos de backend, diseño y producto para entregar soluciones de alta calidad dentro de plazos desafiantes.</li>
+                        </ul>
+                    </div>
+                `,
+                freelanceTitle: "Proyectos Freelance",
+                freelanceContent: `
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Chatbot con Panel Administrador</h4>
+                        <p class="text-gray-700 text-sm mt-1">
+                            Desarrollo completo de una aplicación <span class="emphasis-text">React + Firebase con WebSocket</span>, permitiendo que operadores interactúen en tiempo real con usuarios. Incluyó lógica de turnos, registros detallados de conversaciones y un sistema de <span class="emphasis-text">análisis de datos</span> para la optimización del servicio al cliente.
+                        </p>
+                    </div>
+                    <div class="mb-4">
+                        <h4 class="job-title text-lg">Sistema de Cierre de Caja</h4>
+                        <p class="text-gray-700 text-sm mt-1">
+                            Creación de una aplicación robusta para la carga de datos financieros con <span class="emphasis-text">cálculos automáticos</span>, generación de <span class="emphasis-text">informes detallados y personalizables</span>, exportación a Excel (utilizando ExcelJS) y funcionalidad de envío por WhatsApp o correo electrónico. Optimización del rendimiento para gestionar <span class="emphasis-text">grandes volúmenes de datos</span> de manera eficiente.
+                        </p>
+                    </div>
+                `,
+                personalProjectsTitle: "Proyectos Personales",
+                personalProjectsContent: `
+                    <li><span class="emphasis-text">Plataforma de E-commerce Completa:</span> Desarrollo de una plataforma de e-commerce utilizando <span class="emphasis-text">Next.js</span> para el frontend, <span class="emphasis-text">Node.js/Express</span> para el backend, integración con <span class="emphasis-text">Stripe</span> para pagos y <span class="emphasis-text">MongoDB</span> como base de datos. Incluye carrito de compras, autenticación de usuario y panel administrativo.</li>
+                    <li><span class="emphasis-text">Portafolio Personal Interactivo:</span> Sitio web responsivo construido con React y Tailwind CSS, presentando proyectos y habilidades de forma dinámica y visualmente atractiva.</li>
+                    <li><span class="emphasis-text">Aplicaciones Móviles con React Native:</span> Diversos prototipos y aplicaciones funcionales desarrolladas para Android e iOS, explorando la creación de interfaces nativas e integración con APIs.</li>
+                    <li><span class="emphasis-text">Lista de Tareas Avanzada:</span> Aplicación de gestión de tareas con funcionalidades de arrastrar y soltar, filtros avanzados y persistencia de datos utilizando Firebase.</li>
+                `
+            }
+        };
+
+        let currentLang = 'pt'; // Default language
+
+        // Function to update the content based on the selected language
+        function updateContent(lang) {
+            document.getElementById('cvTitle').textContent = content[lang].cvTitle;
+            document.getElementById('jobTitle').textContent = content[lang].jobTitle;
+            document.getElementById('profileTitle').textContent = content[lang].profileTitle;
+            document.getElementById('profileContent').innerHTML = content[lang].profileContent;
+            document.getElementById('skillsTitle').textContent = content[lang].skillsTitle;
+            document.getElementById('skillsContent').innerHTML = content[lang].skillsContent;
+            document.getElementById('educationTitle').textContent = content[lang].educationTitle;
+            document.getElementById('educationContent').innerHTML = content[lang].educationContent;
+            document.getElementById('languagesTitle').textContent = content[lang].languagesTitle;
+            document.getElementById('languagesContent').innerHTML = content[lang].languagesContent;
+            document.getElementById('experienceTitle').textContent = content[lang].experienceTitle;
+            document.getElementById('experienceContent').innerHTML = content[lang].experienceContent;
+            document.getElementById('freelanceTitle').textContent = content[lang].freelanceTitle;
+            document.getElementById('freelanceContent').innerHTML = content[lang].freelanceContent;
+            document.getElementById('personalProjectsTitle').textContent = content[lang].personalProjectsTitle;
+            document.getElementById('personalProjectsContent').innerHTML = content[lang].personalProjectsContent;
+
+            // Update the button text
+            document.getElementById('langToggle').textContent = (lang === 'pt' ? 'ES / PT' : 'PT / ES');
+
+            // Update the HTML lang attribute
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'es-ES';
+        }
+
+        // Function to toggle language
+        function toggleLanguage() {
+            currentLang = (currentLang === 'pt' ? 'es' : 'pt');
+            updateContent(currentLang);
+        }
+
+        // Initialize content on page load
+        window.onload = () => {
+            updateContent(currentLang);
+        };
+    </script>
+</body>
+</html>
