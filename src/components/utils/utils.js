@@ -5,11 +5,13 @@ import InstagramIcon from '../../assets/img/instagram.svg';
 import es from '../../assets/img/flag-es.svg';
 import pt from '../../assets/img/flag-bra.svg';
 import us from '../../assets/img/flag-us.svg';
-import projImg1 from "../../assets/img/projecto1.png";
+import projImg1 from "../../assets/img/proyecto1-2.png";
 import projImg2 from "../../assets/img/projecto2.png";
 import projImg3 from "../../assets/img/projecto3.png";
 import projImg4 from "../../assets/img/projecto4.png";
 import projImg5 from "../../assets/img/projecto5.png";
+import projImg6 from "../../assets/img/proyecto6.png";
+import projImg7 from "../../assets/img/proyecto7.png";
 import flame from "../../assets/img/flame.png";
 export const particlesData = {
     "particles": {
@@ -146,6 +148,11 @@ export const projectsDescription = {
       subDescription: "Creacion de una app para el manejo de usuarios, lector de QR y Generador de QR"
     },
     {
+      title: "Fit Trainer",
+      description: "Diseño y Desarrollo",
+      subDescription: "Aplicacion para entrenadores personales y manejo de rutinas/ejercicios"
+    },
+    {
       title: "NetGlobal Solutions",
       description: "Diseño y Desarrollo",
       subDescription: "Modulo de Kanban para el manejo generico de tareas"
@@ -159,6 +166,11 @@ export const projectsDescription = {
       title: "Netglobal Solutions",
       description: "Desarrollo",
       subDescription: "Modulo de mapa para el seguimiento de una ruta de un movil"
+    },
+    {
+      title: "Casino Virtual",
+      description: "Desarrollo",
+      subDescription: "ChatBot para el manejo de usuarios y atencion al cliente"
     },
     {
       title: "Netglobal Solutions",
@@ -178,6 +190,11 @@ export const projectsDescription = {
       subDescription: "Criação de um aplicativo para gerenciamento de usuários, leitor de QR e gerador de QR"
     },
     {
+      title: "Fit Trainer",
+      description: "Design e Desenvolvimento",
+      subDescription: "Aplicativo para personal trainers e gerenciamento de treinos/exercícios"
+    },
+    {
       title: "Soluções NetGlobal",
       description: "Design e Desenvolvimento",
       subDescription: "Módulo Kanban para gerenciamento genérico de tarefas"
@@ -191,6 +208,11 @@ export const projectsDescription = {
       title: "Soluções Netglobal",
       description: "Desenvolvimento",
       subDescription: "Módulo de mapa para rastreamento de rota de um celular"
+    },
+    {
+      title: "Casino Virtual",
+      description: "Desenvolvimento",
+      subDescription: "ChatBot para o gerenciamento de usuários e atendimento ao cliente"
     },
     {
       title: "Soluções Netglobal",
@@ -210,6 +232,11 @@ export const projectsDescription = {
       subDescription: "Creation of an app for user management, QR code reader, and QR code generator"
     },
     {
+      title: "Fit Trainer",
+      description: "Design and Development",
+      subDescription: "App for personal trainers and workout/routine management"
+    },
+    {
       title: "NetGlobal Solutions",
       description: "Design and Development",
       subDescription: "Kanban module for generic task management"
@@ -223,6 +250,11 @@ export const projectsDescription = {
       title: "Netglobal Solutions",
       description: "Development",
       subDescription: "Map module for tracking a mobile route"
+    },
+    {
+      title: "Casino Virtual",
+      description: "Development",
+      subDescription: "Chatbot for user management and customer service"
     },
     {
       title: "Netglobal Solutions",
@@ -274,7 +306,7 @@ export const skills = {
     }
 }
 
-export const projectImages = [projImg1, projImg2, flame,projImg3, projImg4, projImg5]
+export const projectImages = [projImg1, projImg7, projImg2, flame,projImg3, projImg6, projImg4, projImg5]
 
 export const initialDescription = {
   "es": {  tag: "Bienvenido a mi Portfolio",  title: "Hola! Soy Juan Lertora",  description: "Soy un desarrollador web apasionado por crear experiencias digitales increíbles. A lo largo de los años, he trabajado arduamente para perfeccionar mis habilidades y ofrecer soluciones creativas y efectivas para mis clientes. ¡Contáctame para discutir tus ideas y proyectos - estoy deseando trabajar juntos!",  contact: "Contactame"},
