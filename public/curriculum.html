@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es-ES">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title id="cvTitle">Juan Lertora</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -52,21 +54,51 @@
             font-weight: 400;
             color: #4b5563;
         }
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
-    <div class="container rounded-lg">
+    <div id="loading-overlay">
+        <div id="loading-spinner"></div>
+    </div>
+    <div class="container rounded-lg" id="cv-container">
         <!-- Header Section (Single Column) -->
         <header class="text-center mb-8 relative">
             <h1 class="text-4xl font-extrabold text-gray-900 mb-1">Juan Lertora</h1>
-            <h2 id="jobTitle" class="text-2xl font-semibold text-gray-700 mb-3">Desenvolvedor Frontend Pleno</h2>
-            <p class="text-lg text-gray-600">
+            <h2 id="jobTitle" class="text-2xl font-semibold text-gray-700 mb-3">Desarrollador Frontend Pleno</h2>
+            <p id="linkedin-link" class="text-lg text-gray-600">
                 <a href="https://linkedin.com/in/juan-lertora" target="_blank" class="text-blue-600 hover:underline">LinkedIn: linkedin.com/in/juan-lertora</a>
             </p>
-            <!-- Language Selector -->
-            <div class="absolute top-0 right-0 mt-2 mr-2">
+            <!-- Language and PDF Selector -->
+            <div id="controls" class="absolute top-0 right-0 mt-2 mr-2 flex space-x-2">
                 <button id="langToggle" onclick="toggleLanguage()" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-md">
                     ES / PT
+                </button>
+                <button id="downloadPDFButton" onclick="downloadPDF()" class="bg-green-500 hover:bg-green-600 text-white font-bold py-1 px-3 rounded-full text-sm shadow-md">
+                    Descargar PDF
                 </button>
             </div>
         </header>
@@ -76,7 +108,7 @@
             <!-- Left Column: Profile, Skills, Education -->
             <div class="md:col-span-1">
                 <section class="mb-6">
-                    <h3 class="section-title" id="profileTitle">Perfil Profissional</h3>
+                    <h3 class="section-title" id="profileTitle">Perfil Profesional</h3>
                     <p class="text-gray-700 text-sm leading-relaxed" id="profileContent"></p>
                 </section>
 
@@ -86,7 +118,7 @@
                 </section>
 
                 <section class="mb-6">
-                    <h3 class="section-title" id="educationTitle">Formação Acadêmica</h3>
+                    <h3 class="section-title" id="educationTitle">Formación Académica</h3>
                     <div id="educationContent"></div>
                 </section>
 
@@ -99,17 +131,17 @@
             <!-- Right Column: Experience, Projects -->
             <div class="md:col-span-2">
                 <section class="mb-6">
-                    <h3 class="section-title" id="experienceTitle">Experiência Profissional</h3>
+                    <h3 class="section-title" id="experienceTitle">Experiencia Profesional</h3>
                     <div id="experienceContent"></div>
                 </section>
 
                 <section class="mb-6">
-                    <h3 class="section-title" id="freelanceTitle">Projetos Freelance</h3>
+                    <h3 class="section-title" id="freelanceTitle">Proyectos Freelance</h3>
                     <div id="freelanceContent"></div>
                 </section>
 
                 <section class="mb-6">
-                    <h3 class="section-title" id="personalProjectsTitle">Projetos Pessoais</h3>
+                    <h3 class="section-title" id="personalProjectsTitle">Proyectos Personales</h3>
                     <ul class="list-disc list-inside text-gray-700 text-sm" id="personalProjectsContent"></ul>
                 </section>
             </div>
@@ -117,7 +149,7 @@
     </div>
 
     <script>
-        // Object containing all content in Portuguese and Spanish
+        // Objeto que contiene todo el contenido en portugués y español
         const content = {
             pt: {
                 cvTitle: "Juan Lertora - Currículo",
@@ -178,7 +210,7 @@
                     <div class="mb-4">
                         <h4 class="job-title text-lg">Sistema de Fechamento de Caixa</h4>
                         <p class="text-gray-700 text-sm mt-1">
-                            Criação de uma aplicação robusta para carregamento de dados financeiros com <span class="emphasis-text">cálculos automáticos</span>, geração de <span class="emphasis-text">relatórios detalhados e personalizáveis</span>, exportação para Excel (utilizando ExcelJS) e funcionalidade de envio por WhatsApp ou e-mail. Otimização da performance para gerenciar <span class="emphasis-text">grandes volumes de dados</span> de forma eficiente.
+                            Criação de uma aplicação robusta para carregamento de dados financeiros com <span class="emphasis-text">cálculos automáticos</span>, geração de <span class="emphasis-text">relatórios detalhados e personalizáveis</span>, exportação para Excel (utilizando ExcelJS) y funcionalidade de envio por WhatsApp o e-mail. Otimização da performance para gerenciar <span class="emphasis-text">grandes volumes de dados</span> de forma eficiente.
                         </p>
                     </div>
                     <div class="mb-4">
@@ -226,7 +258,7 @@
                     <p class="text-gray-700 text-sm mb-2">
                         <span class="emphasis-text">SoyHenry</span> - Full Stack Web Developer (Completado)
                     </p>
-                    <p class="text-gray-700 text-sm">
+                    <p class="text-gray-70s0 text-sm">
                         <span class="emphasis-text">UTN</span> - Tecnicatura en Programación - Primer año completo
                     </p>
                 `,
@@ -299,7 +331,7 @@
             }
         };
 
-        let currentLang = 'pt'; // Default language
+        let currentLang = 'es'; // Default language
 
         // Function to update the content based on the selected language
         function updateContent(lang) {
@@ -321,16 +353,84 @@
             document.getElementById('personalProjectsContent').innerHTML = content[lang].personalProjectsContent;
 
             // Update the button text
-            document.getElementById('langToggle').textContent = (lang === 'pt' ? 'ES / PT' : 'PT / ES');
-
+            document.getElementById('langToggle').textContent = (lang === 'es' ? 'ES / PT' : 'PT / ES');
+            
             // Update the HTML lang attribute
-            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'es-ES';
+            document.documentElement.lang = lang === 'es' ? 'es-ES' : 'pt-BR';
         }
 
         // Function to toggle language
         function toggleLanguage() {
-            currentLang = (currentLang === 'pt' ? 'es' : 'pt');
+            currentLang = (currentLang === 'es' ? 'pt' : 'es');
             updateContent(currentLang);
+        }
+        
+        // Function to download the CV as a PDF
+        function downloadPDF() {
+            const element = document.getElementById('cv-container');
+            const downloadButton = document.getElementById('downloadPDFButton');
+            const loadingOverlay = document.getElementById('loading-overlay');
+            const controls = document.getElementById('controls');
+            const linkedinLink = document.getElementById('linkedin-link');
+            
+            // Ocultar elementos antes de generar el PDF
+            controls.style.display = 'none';
+            linkedinLink.style.display = 'none';
+            
+            // Mostrar el indicador de carga y deshabilitar el botón
+            loadingOverlay.style.display = 'flex';
+            downloadButton.disabled = true;
+
+            // Opciones de html2canvas para mejorar la calidad y el tamaño del archivo.
+            // Se usa una escala de 2 para mejor resolución y se comprime la imagen a JPEG.
+            const options = {
+                scale: 2, // Aumentamos la escala para mayor resolución
+                useCORS: true
+            };
+
+            html2canvas(element, options).then(canvas => {
+                const imgData = canvas.toDataURL('image/jpeg', 0.9); // Convertir a JPEG con compresión (calidad 0.9)
+                
+                const imgWidth = 210; // Ancho A4 en mm
+                const pageHeight = 297; // Altura A4 en mm
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                let heightLeft = imgHeight;
+                
+                // Crear una nueva instancia de jsPDF
+                const pdf = new window.jspdf.jsPDF('p', 'mm', 'a4');
+                let position = 0;
+
+                // Añadir la imagen al PDF
+                pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                heightLeft -= pageHeight;
+
+                // Si el contenido es más largo que una página, añadir nuevas páginas
+                while (heightLeft >= 0) {
+                    position = heightLeft - imgHeight;
+                    pdf.addPage();
+                    pdf.addImage(imgData, 'JPEG', 0, position, imgWidth, imgHeight);
+                    heightLeft -= pageHeight;
+                }
+
+                // Guardar el PDF
+                pdf.save('Juan_Lertora_FrontEnd_Ssr.pdf');
+                
+                // Mostrar elementos de nuevo después de generar el PDF
+                controls.style.display = 'flex';
+                linkedinLink.style.display = 'block';
+                
+                // Ocultar el indicador de carga y volver a habilitar el botón
+                loadingOverlay.style.display = 'none';
+                downloadPDFButton.disabled = false;
+            }).catch(error => {
+                console.error("Error al generar PDF:", error);
+                
+                // Asegurarse de que los elementos se muestren de nuevo en caso de error
+                controls.style.display = 'flex';
+                linkedinLink.style.display = 'block';
+                loadingOverlay.style.display = 'none';
+                downloadPDFButton.disabled = false;
+            });
         }
 
         // Initialize content on page load
